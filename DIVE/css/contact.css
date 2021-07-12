@@ -1,0 +1,60 @@
+.company tr {
+    height: 7rem;
+}
+
+.company th {
+    width: 150px;
+    float: left;
+}
+
+.company td {
+    width: 480px;
+    float: left;
+    height: 7rem;
+}
+
+.xend {
+    width: 100%;
+    text-align: center;
+}
+
+.xend-btn {
+    height: 3rem;
+    background-color: #008B8B;
+    color: #fff;
+    margin: 10px;
+}
+
+.xend-btn:hover {
+    opacity: 0.6;
+}
+
+.email {
+    width: 480px;
+    height: 25px;
+    border: solid 1px;
+}
+
+.company {
+    float: right;
+    margin-right: 10px;
+}
+
+.area {
+    width: 480px;
+    display: table;
+}
+
+.area_ch {
+    width: 100%;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.side_menu .active {
+    background-color: #FCECEC;
+}
+
+.side_menu .active a {
+    color: #4D4D4D;
+}
