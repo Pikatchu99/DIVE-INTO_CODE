@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Ruby</title>
+    </head>
+    <body>
+    <% require 'pg' %>
+    <% connection = PG::connect(dbname: "goya") %>
+    <% connection.internal_encoding = "UTF-8" %>
+    <% result = connection.exec("SELECT * FROM crops WHERE quality = true;")%>
+    <% data = []%>
+    <% result.each do |value| %>
+        <% data << "#{value["length"]}  #{value["weight"]}  #{value["quality"]}  #{value["give_for"]}  #{value["date"]}"%>
+    <% end %>
+    <% false_result = connection.exec("SELECT * FROM crops WHERE quality = false;")%>
+    <% f_data = []%>
+    <% false_result.each do |value| %>
+        <% f_data << "#{value["length"]}  #{value["weight"]}  #{value["quality"]}  #{value["give_for"]}  #{value["date"]}"%>
+    <% end %>
+    <h1>RUBY</h1>
+    <form action="t_data.cgi" method="POST">
+        <button style="margin: 20px" type="submit" name="Send" value="<%= data.join(' ')%>">DATA TRUE</button>
+    </form>
+    <form action="f_data.cgi" method="POST">
+         <button style="margin: 20px" type="submit" name="falseValue" value="<%= f_data.join(' ')%>">DATA FALSE</button>
+    </form>
+    </body>
+</html>
